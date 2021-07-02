@@ -24,4 +24,4 @@ async def on_member_join(member):
         await guild.ban(member)
         print('Not in tipcc, banning')
 
-bot.run(os.getenv('DISCORD') #bot token, do not disclose
+bot.run(os.getenv('DISCORD')) #bot token, do not disclose
