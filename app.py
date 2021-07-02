@@ -1,13 +1,27 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+# bot.py
+
+import discord
 import os
-from flask import Flask
+intents = discord.Intents.all()
 
-app = Flask(__name__)
+bot = commands.Bot(command_prefix="!", intents=intents) #useless thing
 
-@app.route('/')
-def hello():
-    return 'Hello World!'
+@bot.event
+async def on_ready():
+    print("Bot ready.")
 
-if __name__ == '__main__':
-    # Bind to PORT if defined, otherwise default to 5000.
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+@bot.event
+async def on_member_join(member):
+    print(member.id)
+    guild = bot.get_guild(860599727309717534) #tipcc trade, change id
+    mainguild = bot.get_guild(860599706434666506) #tipcc, change id
+
+    if mainguild.get_member(member.id) is not None:
+        print('This person is in tipcc')
+    else:
+        await guild.ban(member)
+        print('Not in tipcc, banning')
+
+bot.run(os.getenv('DISCORD') #bot token, do not disclose
