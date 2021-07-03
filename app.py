@@ -3,6 +3,7 @@
 # bot.py
 
 import discord
+import os
 from discord.ext import commands
 
 intents = discord.Intents.all()
