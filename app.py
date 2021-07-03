@@ -23,7 +23,7 @@ async def tradeunban(ctx, user: discord.User):
         await msg.delete()
         return
     
-    guild = bot.get_guild(770006218717921330)
+    guild = bot.get_guild(770006218717921330) #tipcc trade, change id
     try:
         await guild.unban(user)
     except Exception as e:
@@ -41,7 +41,7 @@ async def on_member_join(member):
     if member.guild == mainguild:
         return
 
-    logchannel = bot.get_channel(860599727309717538) #log here
+    logchannel = bot.get_channel(860599727309717538) #log channel here
 
     if mainguild.get_member(member.id) is not None:
         await logchannel.send(f"{member} `{member.id}` joined the server, they are in the tip.cc main server, ignoring.")
