@@ -4,6 +4,7 @@
 
 import discord
 import os
+import asyncio
 from discord.ext import commands
 
 intents = discord.Intents.all()
@@ -14,8 +15,14 @@ bot = commands.Bot(command_prefix="?", intents=intents) #useless thing
 async def on_ready():
     print("Bot ready.")
     
-@commands.command()
+@bot.command
 async def tradeunban(ctx, user: discord.User):
+    if not ctx.author.guild_permissions.ban_members:
+        msg = await ctx.send("Restricted access.")
+        await asyncio.sleep 10
+        await msg.delete()
+        return
+    
     guild = bot.get_guild(770006218717921330)
     try:
         await guild.unban(user)
