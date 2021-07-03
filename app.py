@@ -28,7 +28,7 @@ async def tradeunban(ctx, user: discord.User):
         await guild.unban(user)
     except Exception as e:
         print(e)
-        return await ctx.send("Unable to unban, maybe they aren't banned?")
+        return await ctx.send("Unable to unban, maybe they aren't banned? (If they are banned, check bot logs)")
     await ctx.send(f"Unbanned {user.mention} from tip.cc trade server")
         
     
