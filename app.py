@@ -15,7 +15,7 @@ bot = commands.Bot(command_prefix="?", intents=intents) #useless thing
 async def on_ready():
     print("Bot ready.")
     
-@bot.command
+@bot.command(name='tradeunban')
 async def tradeunban(ctx, user: discord.User):
     if not ctx.author.guild_permissions.ban_members:
         msg = await ctx.send("Restricted access.")
