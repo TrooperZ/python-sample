@@ -23,7 +23,7 @@ async def tradeunban(ctx, user: discord.User):
         await msg.delete()
         return
     
-    guild = bot.get_guild(860599727309717534)
+    guild = bot.get_guild(770006218717921330)
     try:
         await guild.unban(user)
     except Exception as e:
