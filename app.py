@@ -47,7 +47,12 @@ async def on_member_join(member):
         await logchannel.send(f"{member} `{member.id}` joined the server, they are in the tip.cc main server, ignoring.")
     else:
         await logchannel.send(f"{member} `{member.id}` joined the server, ***THEY ARE NOT IN THE TIP.CC MAIN SERVER***, banning due to suspicion")
-        await member.send("Your account has been banned from the tip.cc trading server because our system has picked the account up as a potential scammer/botter. To resolve this issue, go to discord.gg/tipcc and discuss it with one of the Server Moderators or Server Staff.")
+        await member.send("""You have been temporarily removed from the tip.cc trading server.
+
+The trading server is exclusive for Tip.cc server users because you are not a user of the mentioned server, we temporarily removed you from the tip.cc trading server.
+
+Once you have joined over at discord.gg/tipcc * please appeal your ban at https://discord.gg/afwSbGcEmN
+*You might be subject to further verification to be able to join tip.cc main server""")
         await guild.ban(member, reason="Possible alt/bot/scammer detected by Tip.cc Tradekeeper")
 
 bot.run(os.getenv('DISCORD')) #bot token, do not disclose
