@@ -19,7 +19,7 @@ async def on_ready():
 async def tradeunban(ctx, user: discord.User):
     if not ctx.author.guild_permissions.ban_members:
         msg = await ctx.send("Restricted access.")
-        await asyncio.sleep 10
+        await asyncio.sleep(10)
         await msg.delete()
         return
     
