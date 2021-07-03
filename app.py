@@ -8,12 +8,23 @@ from discord.ext import commands
 
 intents = discord.Intents.all()
 
-bot = commands.Bot(command_prefix="!!!!", intents=intents) #useless thing
+bot = commands.Bot(command_prefix="?", intents=intents) #useless thing
 
 @bot.event
 async def on_ready():
     print("Bot ready.")
-
+    
+@commands.command()
+async def tradeunban(ctx, user: discord.User):
+    guild = bot.get_guild(770006218717921330)
+    try:
+        await guild.unban(user)
+    except:
+        return await ctx.send("Unable to unban, maybe they aren't banned?")
+    await ctx.send(f"Unbanned {user.mention} from tip.cc trade server")
+        
+    
+    
 @bot.event
 async def on_member_join(member):
     guild = bot.get_guild(770006218717921330) #tipcc trade, change id
