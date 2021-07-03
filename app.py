@@ -30,6 +30,8 @@ async def tradeunban(ctx, user: discord.User):
         print(e)
         return await ctx.send("Unable to unban, maybe they aren't banned? (If they are banned, check bot logs)")
     await ctx.send(f"Unbanned {user.mention} from tip.cc trade server")
+    log = bot.get_channel(860599727309717538
+    await log.send(f"{ctx.author} unbanned {user} from tip.cc trade server")
         
     
     
