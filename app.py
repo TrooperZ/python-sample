@@ -16,8 +16,8 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
-    guild = bot.get_guild(860599727309717534) #tipcc trade, change id
-    mainguild = bot.get_guild(860599706434666506) #tipcc, change id
+    guild = bot.get_guild(770006218717921330) #tipcc trade, change id
+    mainguild = bot.get_guild(617034883503620167) #tipcc, change id
 
     if member.guild == mainguild:
         return
